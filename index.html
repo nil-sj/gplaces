@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="description" content="This Web Application Finds Out Places in Google Maps" />
+        <meta name="keywords" content="Google, Places, Find, API, Maps" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|Enriqueta|Titillium+Web|Open+Sans" />
+        <link rel="stylesheet" href="css/styles.css" />
+        
+        <title>Find Places on Google Maps</title>
+    </head>
+    <body class="bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-8 col-lg-9 bg-light">
+                    <div class="row">
+                        <div class="col text-center">
+                            <h1 class="mb-3 mt-3">Find Places on Google Maps</h1>
+                            <hr />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group row">
+                                <label for="order-item" class="col-md-4 col-form-label">Place Type:</label>
+                                <div class="col-md-8">
+                                    <select class="form-control" name="type_places" id="type_places">
+                                        <option value="restaurant" selected>Restaurant</option>
+                                        <option value="night_club">Night Clubs</option>
+                                        <option value="lodging">Hotels</option>
+                                        <option value="park">Parks</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group row">
+                                <label for="autocomplete" class="col-md-4 col-form-label">Find a Place in:</label>
+                                <div class="col-md-8">
+                                    <input id="autocomplete" class="form-control" placeholder="Enter a City" type="text" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group row">
+                                <label for="country" class="col-md-4 col-form-label">Select Country:</label>
+                                <div class="col-md-8">
+                                    <select id="country" class="form-control">
+                                        <option value="all">All</option>
+                                        <option value="au">Australia</option>
+                                        <option value="br">Brazil</option>
+                                        <option value="ca">Canada</option>
+                                        <option value="fr">France</option>
+                                        <option value="de">Germany</option>
+                                        <option value="mx">Mexico</option>
+                                        <option value="nz">New Zealand</option>
+                                        <option value="it">Italy</option>
+                                        <option value="za">South Africa</option>
+                                        <option value="es">Spain</option>
+                                        <option value="pt">Portugal</option>
+                                        <option value="us" selected>U.S.A.</option>
+                                        <option value="uk">United Kingdom</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col bg-dark" id="map"> 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 col-lg-3 bg-light">
+                    <table id="resultsTable">
+                        <tbody id="results"></tbody>
+                    </table>
+                </div>
+
+                <div style="display: none">
+                    <div id="info-content">
+                        <table>
+                            <tr id="iw-url-row" class="iw_table_row">
+                            <td id="iw-icon" class="iw_table_icon"></td>
+                            <td id="iw-url"></td>
+                            </tr>
+                            <tr id="iw-address-row" class="iw_table_row">
+                            <td class="iw_attribute_name">Address:</td>
+                            <td id="iw-address"></td>
+                            </tr>
+                            <tr id="iw-phone-row" class="iw_table_row">
+                            <td class="iw_attribute_name">Telephone:</td>
+                            <td id="iw-phone"></td>
+                            </tr>
+                            <tr id="iw-rating-row" class="iw_table_row">
+                            <td class="iw_attribute_name">Rating:</td>
+                            <td id="iw-rating"></td>
+                            </tr>
+                            <tr id="iw-website-row" class="iw_table_row">
+                            <td class="iw_attribute_name">Website:</td>
+                            <td id="iw-website"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center">
+                    <hr class="mb-5">
+                    <p class="mt-5 mb-5" id="footer">
+                        A web application with Google API - by NJworks.Online
+                    </p>
+                    <hr class="my-5">
+                </div>
+            </div>
+        </div>
+        
+     
+                
+
+
+              
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="js/code.js"></script>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzFREQQ77SJKPUuEscRDsgnuH9Xb9xOpE&libraries=places&callback=initMap" async defer></script> 
+    </body>
+</html>
